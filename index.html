@@ -524,8 +524,8 @@ footer{background:var(--charcoal);padding:4.5rem clamp(1.2rem,5vw,4.5rem) 2.5rem
 
 /* Tablet (768px - 1100px) */
 @media(max-width:1100px){
-  .sig-grid{grid-template-columns:1fr 1fr!important; gap:1.5rem!important;}
-  .sig-card:nth-child(3){grid-column:span 2; max-width:50%; margin:0 auto;}
+  .sig-grid{grid-template-columns:1fr 1fr!important; gap:1.2rem!important; max-width:680px; margin:0 auto;}
+  .sig-card:nth-child(3){grid-column:span 2; max-width:48%; margin:0 auto;}
 
   #hero{ grid-template-columns:55% 45%; }
   .feat-split{ grid-template-columns:1fr 1fr; }
@@ -546,15 +546,39 @@ footer{background:var(--charcoal);padding:4.5rem clamp(1.2rem,5vw,4.5rem) 2.5rem
   .marquee-item{width:200px!important;}
   .marquee-cap{font-size:.55rem!important;}
   
-  /* SIGNATURE DRINKS on mobile - stack 1 col */
-  .sig-section{padding:3rem 1rem!important;}
-  .sig-grid{grid-template-columns:1fr!important; gap:1.2rem!important; max-width:340px;}
-  .sig-card{transform:none!important;}
-  .sig-card:nth-child(1),.sig-card:nth-child(2),.sig-card:nth-child(3){transform:none!important;}
-  .sig-card:hover{transform:translateY(-4px)!important;}
-  .sig-img{aspect-ratio:16/10;}
-  .sig-name{font-size:1.3rem!important;}
-  .sig-desc{font-size:.78rem!important;}
+  /* SIGNATURE DRINKS on mobile - stack 1 col, no rotation, normal card */
+  .sig-section{padding:2.5rem 1rem!important;}
+  .sig-grid{
+    grid-template-columns:1fr!important; 
+    gap:1.2rem!important; 
+    max-width:360px;
+    margin:0 auto;
+  }
+  .sig-card,
+  .sig-card:nth-child(1),
+  .sig-card:nth-child(2),
+  .sig-card:nth-child(3){
+    transform:none!important;
+    rotate:0deg!important;
+    padding:1rem!important;
+    margin:0!important;
+  }
+  .sig-card:hover{transform:translateY(-3px)!important;}
+  .sig-img{
+    aspect-ratio:4/3!important;
+    margin-bottom:1rem!important;
+    width:100%!important;
+  }
+  .sig-img img{
+    width:100%!important;
+    height:100%!important;
+    object-fit:cover!important;
+    object-position:center!important;
+  }
+  .sig-name{font-size:1.35rem!important; margin-bottom:.5rem!important;}
+  .sig-desc{font-size:.78rem!important; margin-bottom:.7rem!important;}
+  .sig-price{font-size:1.3rem!important;}
+  .sig-tag{font-size:.55rem!important; margin-bottom:.4rem!important;}
 
 
   /* Nav — HIDE center links and View Menu button, only show hamburger */
@@ -640,13 +664,16 @@ footer{background:var(--charcoal);padding:4.5rem clamp(1.2rem,5vw,4.5rem) 2.5rem
   .ml-s{ font-size:.6rem; }
   .mp-desc{ font-size:.6rem; }
 
-  /* Gallery bento — 2 col */
+  /* Gallery bento — 2 col, all cells equal size */
   .bento{ 
     grid-template-columns:1fr 1fr!important; 
     grid-template-rows:auto!important;
     padding:0 .8rem;
-    gap:.4rem;
+    gap:.5rem;
   }
+  .bento-item{ aspect-ratio:1!important; }
+  .bento-item.span2c{ grid-column:span 2!important; aspect-ratio:16/10!important; }
+  .bento-item.span2r{ grid-row:auto!important; aspect-ratio:1!important; }
   .b-i{ aspect-ratio:1; }
   .b-r2{ grid-row:span 1!important; }
   .b-c2{ grid-column:span 2!important; }
