@@ -444,10 +444,16 @@ footer{background:var(--charcoal);padding:4.5rem clamp(1.2rem,5vw,4.5rem) 2.5rem
   .pstrip{ height:140px; }
   .pstrip-i{ }
 
-  /* Feature splits — STACK on mobile */
+  /* Feature splits — STACK on mobile, smaller image */
   .feat-split{ grid-template-columns:1fr!important; min-height:auto; }
   .feat-split.rev{ direction:ltr!important; }
-  .fs-img{ aspect-ratio:16/10; }
+  .fs-img{ aspect-ratio:4/3; max-height:280px; }
+  .fs-img img{ object-position:center; }
+  .fs-txt{ padding:2rem 1.4rem!important; }
+  .fs-h{ font-size:clamp(1.8rem,6vw,2.4rem)!important; }
+  .fs-p{ font-size:.85rem!important; line-height:1.7!important; max-width:100%!important; }
+  .fs-tags{ gap:.4rem!important; }
+  .fs-tag{ font-size:.58rem!important; padding:.35rem .7rem!important; }
   .fs-txt{ padding:1.5rem 1.2rem; }
   .fs-h{ font-size:clamp(1.3rem,4.5vw,2rem); }
   .fs-p{ font-size:.78rem; line-height:1.65; }
