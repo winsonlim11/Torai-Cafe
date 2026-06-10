@@ -524,8 +524,9 @@ footer{background:var(--charcoal);padding:4.5rem clamp(1.2rem,5vw,4.5rem) 2.5rem
 
 /* Tablet (768px - 1100px) */
 @media(max-width:1100px){
-  .sig-grid{grid-template-columns:1fr 1fr!important; gap:1.2rem!important; max-width:680px; margin:0 auto;}
-  .sig-card:nth-child(3){grid-column:span 2; max-width:48%; margin:0 auto;}
+  /* Tablet: keep 3 col grid but make it cleaner */
+  .sig-grid{grid-template-columns:repeat(3,1fr)!important; gap:1rem!important; max-width:900px; margin:0 auto;}
+  .sig-card,.sig-card:nth-child(1),.sig-card:nth-child(2),.sig-card:nth-child(3){transform:none!important; rotate:0deg!important;}
 
   #hero{ grid-template-columns:55% 45%; }
   .feat-split{ grid-template-columns:1fr 1fr; }
@@ -546,13 +547,16 @@ footer{background:var(--charcoal);padding:4.5rem clamp(1.2rem,5vw,4.5rem) 2.5rem
   .marquee-item{width:200px!important;}
   .marquee-cap{font-size:.55rem!important;}
   
-  /* SIGNATURE DRINKS on mobile - stack 1 col, no rotation, normal card */
+  /* SIGNATURE DRINKS on mobile - SIMPLE single column stack */
   .sig-section{padding:2.5rem 1rem!important;}
   .sig-grid{
-    grid-template-columns:1fr!important; 
-    gap:1.2rem!important; 
-    max-width:360px;
+    display:flex!important;
+    flex-direction:column!important;
+    grid-template-columns:none!important;
+    gap:1rem!important; 
+    max-width:340px;
     margin:0 auto;
+    width:100%;
   }
   .sig-card,
   .sig-card:nth-child(1),
@@ -560,14 +564,21 @@ footer{background:var(--charcoal);padding:4.5rem clamp(1.2rem,5vw,4.5rem) 2.5rem
   .sig-card:nth-child(3){
     transform:none!important;
     rotate:0deg!important;
-    padding:1rem!important;
+    padding:0!important;
     margin:0!important;
+    border:none!important;
+    background:transparent!important;
+    width:100%!important;
+    grid-column:auto!important;
+    grid-row:auto!important;
+    max-width:100%!important;
   }
-  .sig-card:hover{transform:translateY(-3px)!important;}
+  .sig-card:hover{transform:none!important; box-shadow:none!important; border:none!important;}
   .sig-img{
     aspect-ratio:4/3!important;
-    margin-bottom:1rem!important;
+    margin-bottom:.8rem!important;
     width:100%!important;
+    border:1px solid var(--bdr);
   }
   .sig-img img{
     width:100%!important;
@@ -575,10 +586,16 @@ footer{background:var(--charcoal);padding:4.5rem clamp(1.2rem,5vw,4.5rem) 2.5rem
     object-fit:cover!important;
     object-position:center!important;
   }
-  .sig-name{font-size:1.35rem!important; margin-bottom:.5rem!important;}
-  .sig-desc{font-size:.78rem!important; margin-bottom:.7rem!important;}
-  .sig-price{font-size:1.3rem!important;}
-  .sig-tag{font-size:.55rem!important; margin-bottom:.4rem!important;}
+  .sig-card:hover .sig-img img{transform:none!important;}
+  .sig-name{font-size:1.3rem!important; margin-bottom:.4rem!important;}
+  .sig-desc{font-size:.8rem!important; margin-bottom:.6rem!important; max-width:100%!important;}
+  .sig-price{font-size:1.25rem!important;}
+  .sig-tag{font-size:.55rem!important; margin-bottom:.3rem!important;}
+  .sig-card + .sig-card{
+    padding-top:1.5rem!important;
+    border-top:1px solid var(--bdr)!important;
+    margin-top:.5rem!important;
+  }
 
 
   /* Nav — HIDE center links and View Menu button, only show hamburger */
