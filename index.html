@@ -399,22 +399,27 @@ footer{background:var(--charcoal);padding:4.5rem clamp(1.2rem,5vw,4.5rem) 2.5rem
 /* Mobile (max 768px) — same layout, scaled down */
 @media(max-width:768px){
 
-  /* Nav */
+  /* Nav — HIDE center links and View Menu button, only show hamburger */
   nav{ height:56px; padding:0 1rem; }
   .nav-logo img{ height:28px; }
-  .nav-c{ display:none; }
-  .brgr{ display:flex; }
-  .nav-ig{ font-size:.62rem; padding:.42rem .9rem; }
+  .nav-links{ display:none!important; }
+  .nav-c{ display:none!important; }
+  .nav-center{ display:none!important; }
+  .nav-cta{ display:none!important; }
+  .nav-ig{ display:none!important; }
+  .hamburger{ display:flex!important; }
+  .brgr{ display:flex!important; }
 
-  /* Hero — keep 2 col but compressed */
-  #hero{ grid-template-columns:1fr 1fr; min-height:100svh; }
-  .hl{ padding:1.5rem 1.2rem; }
-  .h-tag{ font-size:.52rem; margin-bottom:.8rem; }
-  .h-h1{ font-size:clamp(1.6rem,7vw,2.5rem); margin-bottom:.8rem; }
-  .h-sub{ font-size:.78rem; margin-bottom:1.2rem; max-width:100%; }
-  .h-btns a{ font-size:.62rem; padding:.65rem 1rem; }
-  .h-open{ margin-top:1rem; }
-  .h-open strong{ font-size:.82rem; }
+  /* Hero — STACK vertically on mobile, full width */
+  #hero{ grid-template-columns:1fr!important; min-height:auto; padding-top:56px; }
+  .hero-left,.hl{ min-height:auto; padding:3rem 1.5rem 2.5rem; }
+  .hero-right,.hr-img{ min-height:50svh; aspect-ratio:auto; }
+  .hero-h1,.h-h1{ font-size:clamp(2.4rem,9vw,3.5rem)!important; margin-bottom:1rem; }
+  .hero-tag,.h-tag{ font-size:.6rem; margin-bottom:1rem; }
+  .hero-sub,.h-sub{ font-size:.88rem; max-width:100%; margin-bottom:1.5rem; }
+  .hero-btns,.h-btns{ gap:.6rem; }
+  .hero-btns a,.h-btns a{ font-size:.68rem; padding:.75rem 1.4rem; flex:1; text-align:center; }
+  .hero-badge,.h-open{ margin-top:1.4rem; }
 
   /* Ticker */
   .ticker{ padding:.5rem 0; }
@@ -426,41 +431,51 @@ footer{background:var(--charcoal);padding:4.5rem clamp(1.2rem,5vw,4.5rem) 2.5rem
   .eye{ font-size:.58rem; }
   .body{ font-size:.85rem; }
 
-  /* About — keep 2 col */
-  .ab-g{ grid-template-columns:1fr 1fr; gap:1.2rem; }
-  .ab-main{ aspect-ratio:3/4; }
-  .ab-fl{ width:50%; right:-0.5rem; top:-0.5rem; }
-  .sn{ font-size:2rem; }
-  .stat+.stat{ padding-left:1rem; margin-left:1rem; }
+  /* About — STACK on mobile */
+  .ab-g,.about-g,.about-wrap{ grid-template-columns:1fr!important; gap:2rem; }
+  .ab-main,.photo-main,.about-img-main{ aspect-ratio:16/10; }
+  .ab-fl,.photo-float,.about-img-float{ display:none; }
+  .ab-acc,.photo-accent,.about-img-accent{ display:none; }
+  .stats{ flex-direction:column; gap:1rem; }
+  .sn,.stat-n{ font-size:2.2rem; }
+  .stat+.stat{ border-left:none; border-top:1px solid var(--bdr); padding-left:0; margin-left:0; padding-top:1rem; }
 
   /* Photo strip */
   .pstrip{ height:140px; }
   .pstrip-i{ }
 
-  /* Feature splits — keep side by side */
-  .feat-split{ grid-template-columns:1fr 1fr; min-height:300px; }
+  /* Feature splits — STACK on mobile */
+  .feat-split{ grid-template-columns:1fr!important; min-height:auto; }
+  .feat-split.rev{ direction:ltr!important; }
+  .fs-img{ aspect-ratio:16/10; }
   .fs-txt{ padding:1.5rem 1.2rem; }
   .fs-h{ font-size:clamp(1.3rem,4.5vw,2rem); }
   .fs-p{ font-size:.78rem; line-height:1.65; }
   .fs-tags{ gap:.3rem; }
   .fs-tag{ font-size:.52rem; padding:.3rem .6rem; }
 
-  /* Menu */
-  .menu-hd{ gap:1rem; }
-  .menu-3col{ grid-template-columns:repeat(3,1fr); gap:1rem; }
+  /* Menu — single column */
+  .menu-hd{ flex-direction:column; align-items:flex-start; gap:1rem; }
+  .menu-3col{ grid-template-columns:1fr!important; gap:2rem; }
+  .menu-grid{ grid-template-columns:1fr!important; }
+  .tabs{ flex-wrap:wrap; }
   .mcol-en{ font-size:.65rem; }
   .ml-n{ font-size:.75rem; }
   .ml-p{ font-size:.82rem; }
   .ml-s{ font-size:.6rem; }
   .mp-desc{ font-size:.6rem; }
 
-  /* Gallery bento */
+  /* Gallery bento — 2 col */
   .bento{ 
-    grid-template-columns:repeat(4,1fr); 
-    grid-template-rows:130px 110px;
-    padding:0 .5rem;
-    gap:.3rem;
+    grid-template-columns:1fr 1fr!important; 
+    grid-template-rows:auto!important;
+    padding:0 .8rem;
+    gap:.4rem;
   }
+  .b-i{ aspect-ratio:1; }
+  .b-r2{ grid-row:span 1!important; }
+  .b-c2{ grid-column:span 2!important; }
+  .masonry{ column-count:1!important; }
   .b-cap{ font-size:.52rem; padding:.5rem .6rem; }
 
   /* Gift */
@@ -469,10 +484,11 @@ footer{background:var(--charcoal);padding:4.5rem clamp(1.2rem,5vw,4.5rem) 2.5rem
     gap:.5rem!important;
   }
 
-  /* Experience — keep 2 col */
-  .exp-g{ grid-template-columns:1fr 1fr; gap:1.2rem; }
-  .exp-main{ aspect-ratio:3/4; }
-  .exp-sm{ width:50%; left:-0.8rem; bottom:-0.8rem; }
+  /* Experience — STACK */
+  .exp-g,.exp-wrap{ grid-template-columns:1fr!important; gap:2rem; }
+  .exp-r,.exp-right-img{ order:-1; }
+  .exp-main,.img-main{ aspect-ratio:16/10; }
+  .exp-sm,.exp-acc,.mustard-sq,.img-small{ display:none!important; }
   .feat{ padding:.8rem; }
   .feat-n{ font-size:1.2rem; }
   .feat-c h4{ font-size:.68rem; }
@@ -488,29 +504,29 @@ footer{background:var(--charcoal);padding:4.5rem clamp(1.2rem,5vw,4.5rem) 2.5rem
   .rv-nm{ font-size:.62rem; }
   .ava{ width:44px; height:44px; border-radius:10px; }
 
-  /* Location */
-  .loc-g{ grid-template-columns:1fr 1fr; gap:1.2rem; }
-  .map-w{ aspect-ratio:1; }
+  /* Location — STACK */
+  .loc-g,.loc-grid{ grid-template-columns:1fr!important; gap:2rem; }
+  .map-w,.map-wrap{ aspect-ratio:16/10; }
   .ib{ padding:.9rem 0; }
   .il{ font-size:.55rem; }
   .iv{ font-size:.78rem; }
 
-  /* Instagram grid */
+  /* Instagram — 2 col */
   .ig-grid{ 
-    grid-template-columns:repeat(4,1fr);
-    grid-template-rows:100px 100px;
-    gap:.3rem;
+    grid-template-columns:1fr 1fr!important;
+    grid-template-rows:auto!important;
+    gap:.4rem;
   }
-  .ig-cell.big{ grid-column:span 2; grid-row:span 2; }
+  .ig-cell{ aspect-ratio:1; }
+  .ig-cell.big{ grid-column:span 2; grid-row:auto; }
 
   /* CTA */
   #cta{ padding:2.5rem 1rem; }
   #cta .H2{ font-size:clamp(1.6rem,5.5vw,2.4rem); }
   #cta p{ font-size:.82rem; }
 
-  /* Footer */
-  .ft-g{ grid-template-columns:1fr 1fr; gap:1.5rem; }
-  .ft-g > :first-child{ grid-column:span 2; }
+  /* Footer — stack */
+  .ft-g,.footer-grid{ grid-template-columns:1fr!important; gap:2rem; }
   .ft-logo{ height:32px; }
   .ft-desc{ font-size:.72rem; }
   .ft-links a{ font-size:.75rem; }
