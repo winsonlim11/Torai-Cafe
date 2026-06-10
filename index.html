@@ -454,11 +454,32 @@ footer{background:var(--charcoal);padding:4.5rem clamp(1.2rem,5vw,4.5rem) 2.5rem
   .fs-tags{ gap:.3rem; }
   .fs-tag{ font-size:.52rem; padding:.3rem .6rem; }
 
-  /* Menu — single column */
-  .menu-hd{ flex-direction:column; align-items:flex-start; gap:1rem; }
-  .menu-3col{ grid-template-columns:1fr!important; gap:2rem; }
+  /* Menu — keep 2 col on mobile (more compact, less wasted space) */
+  .menu-hd{ flex-direction:column; align-items:flex-start; gap:.8rem; margin-bottom:1.8rem!important; }
+  /* Inline-styled menu grid - target by attribute */
+  #menu [style*="repeat(3,1fr)"]{ grid-template-columns:1fr!important; gap:1.8rem!important; }
+  .menu-3col{ grid-template-columns:1fr!important; gap:1.8rem; }
   .menu-grid{ grid-template-columns:1fr!important; }
   .tabs{ flex-wrap:wrap; }
+  /* Smaller menu typography on mobile */
+  .ml-item .ml-name, .menu-list .ml-name{ font-size:.78rem!important; }
+  .ml-item .ml-price, .menu-list .ml-price{ font-size:.85rem!important; }
+  .ml-sub{ font-size:.65rem!important; }
+  #menu h3{ font-size:.72rem!important; }
+  #menu .menu-list .ml-item{ padding:.45rem 0!important; }
+
+  /* GIFT section — stack vertically on mobile */
+  #gift > div > div{ grid-template-columns:1fr!important; gap:1.5rem!important; }
+  /* Gift images stay 2-col but smaller */
+  #gift [style*="grid-template-columns:1fr 1fr"]:not(:first-child){
+    grid-template-columns:1fr 1fr!important;
+    max-width:280px;
+    margin:0 auto;
+  }
+  #gift .h2{ font-size:clamp(1.6rem,5.5vw,2.2rem)!important; }
+  #gift .body{ font-size:.84rem!important; }
+  #gift p[style*="font-size:.78rem"]{ font-size:.72rem!important; }
+  #gift strong{ font-size:.72rem!important; }
   .mcol-en{ font-size:.65rem; }
   .ml-n{ font-size:.75rem; }
   .ml-p{ font-size:.82rem; }
@@ -780,17 +801,8 @@ footer{background:var(--charcoal);padding:4.5rem clamp(1.2rem,5vw,4.5rem) 2.5rem
           <div class="ml-item"><span class="ml-name">Tropical Passion Fizz</span><span class="ml-price">35K</span></div>
           <div class="ml-item"><span class="ml-name">Chocolate Latte</span><span class="ml-price">45K</span></div>
           <div class="ml-item"><span class="ml-name">Osmanthus Latte</span><span class="ml-price">45K</span></div>
-          <div class="ml-item"><span class="ml-name">Dirty Hojicha Latte</span><span class="ml-price">65K</span></div>
-          <div class="ml-sub">Choco / Milk / Hojicha</div>
         </div>
 
-        <!-- Special continued -->
-        <div style="margin-top:2rem;">
-          <div class="menu-list">
-            <div class="ml-item"><span class="ml-name">Dirty Hojicha Latte</span><span class="ml-price">65K</span></div>
-            <div class="ml-sub">Choco / Milk / Hojicha</div>
-          </div>
-        </div>
       </div>
 
       <!-- COL 3: SALT BREAD + MATCHA PROFILES -->
