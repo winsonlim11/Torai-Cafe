@@ -412,7 +412,7 @@ footer{background:var(--charcoal);padding:4.5rem clamp(1.2rem,5vw,4.5rem) 2.5rem
 
   /* Hero — STACK vertically on mobile, full width */
   #hero{ grid-template-columns:1fr!important; min-height:auto; padding-top:56px; }
-  .hero-left,.hl{ min-height:auto; padding:3rem 1.5rem 2.5rem; }
+  .hero-l,.hero-left,.hl{ min-height:auto; padding:2.5rem 1.5rem 4rem!important; justify-content:flex-start!important; }
   .hero-right,.hr-img{ min-height:50svh; aspect-ratio:auto; }
   .hero-h1,.h-h1{ font-size:clamp(2.4rem,9vw,3.5rem)!important; margin-bottom:1rem; }
   .hero-tag,.h-tag{ font-size:.6rem; margin-bottom:1rem; }
@@ -585,29 +585,65 @@ footer{background:var(--charcoal);padding:4.5rem clamp(1.2rem,5vw,4.5rem) 2.5rem
     max-width:100%!important;
   }
   
-  /* Force OPEN DAILY badge visible on mobile */
+  /* OPEN DAILY badge — fully visible solid dark pill */
   .hero-badge{
-    margin-top:1.8rem!important;
-    padding:.65rem .95rem!important;
-    background:rgba(0,0,0,.22)!important;
-    backdrop-filter:blur(4px);
-    border-radius:4px;
-    align-self:flex-start;
-    align-items:center;
+    display:inline-flex!important;
+    margin-top:2rem!important;
+    margin-bottom:1rem!important;
+    padding:.75rem 1.1rem!important;
+    background:#18140E!important;
+    border-radius:6px!important;
+    align-self:flex-start!important;
+    align-items:center!important;
+    gap:.85rem!important;
+    box-shadow:0 8px 24px rgba(0,0,0,.25);
+    opacity:1!important;
+    animation:none!important;
   }
   .hero-badge span{
-    color:rgba(255,255,255,.9)!important;
-    font-size:.6rem!important;
+    color:#FFFFFF!important;
+    font-size:.62rem!important;
+    letter-spacing:.22em!important;
+    text-transform:uppercase!important;
+    opacity:.85!important;
   }
   .hero-badge strong{
-    color:#fff!important;
-    font-size:.98rem!important;
+    color:#FFFFFF!important;
+    font-size:1rem!important;
+    font-family:"Cormorant Garamond",serif!important;
+    font-weight:400!important;
+    letter-spacing:.06em!important;
   }
   .hero-badge-dot{
-    background:#fff!important;
+    background:#C49A22!important;
+    width:7px!important;
+    height:7px!important;
+    border-radius:50%!important;
     opacity:1!important;
+    flex-shrink:0!important;
   }
 
+
+  /* Add proper spacing between feature splits and previous sections on mobile */
+  .feat-split-ichigo,
+  .feat-split-hojicha{
+    margin-top:0!important;
+  }
+  .feat-split-ichigo > div:first-child img,
+  .feat-split-hojicha > div:nth-child(2) img{
+    display:block;
+  }
+  /* Add visible separator between sections on mobile */
+  .photo-strip{
+    margin-bottom:0!important;
+  }
+  /* Cream gap before feature split sections */
+  .feat-split-ichigo{
+    border-top:1.2rem solid var(--cream,#F7F2E8)!important;
+  }
+  .feat-split-hojicha{
+    border-top:1.2rem solid var(--cream,#F7F2E8)!important;
+  }
 }
 
 /* Very small phones */
